@@ -1,5 +1,7 @@
 export default {
   plugins: {
-    '@tailwindcss/postcss': {},
+    '@tailwindcss/postcss': {
+      darkMode: ['selector', '[data-theme="dark"]', '.dark'],
+    },
   },
 }
