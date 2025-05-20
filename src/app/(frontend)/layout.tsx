@@ -1,6 +1,6 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { Inter as FontSans } from 'next/font/google'
+import { Inter as FontSans, Lavishly_Yours } from 'next/font/google'
 import './styles.css'
 
 export const metadata = {
@@ -13,12 +13,24 @@ const fontSans = FontSans({
   variable: '--font-sans',
 })
 
+const fontLavishlyYours = Lavishly_Yours({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-lavishly-yours',
+})
+
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={cn(
+          'bg-background font-sans font-lavishly-yours antialiased',
+          fontSans.variable,
+          fontLavishlyYours.variable,
+        )}
+      >
         <main>{children}</main>
       </body>
     </html>
