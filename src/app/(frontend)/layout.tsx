@@ -1,4 +1,6 @@
 import React from 'react'
+import { cn } from '@/lib/utils'
+import { Inter as FontSans } from 'next/font/google'
 import './styles.css'
 
 export const metadata = {
@@ -6,12 +8,17 @@ export const metadata = {
   title: 'Payload Blank Template',
 }
 
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
     <html lang="en">
-      <body>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <main>{children}</main>
       </body>
     </html>
